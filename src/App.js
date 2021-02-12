@@ -28,10 +28,11 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 750,
     borderRadius: 20,
-    background: 'linear-gradient(#fca072, #fca072)',
+    background: 'linear-gradient(#fca072, #e28a48)',
   },
   header: {
     padding: theme.spacing(5),
+    marginTop: theme.spacing(4),
   },
   menu: {
     borderRadius: 50,
@@ -62,8 +63,6 @@ export const routes = [
 
 const App = () => {
   const classes = useStyles();
-
-  const activeRoute = (path) => {};
 
   return (
     <div className={classes.root}>

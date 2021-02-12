@@ -46,6 +46,7 @@
     "bracketSpacing": true
   },
   "devDependencies": {
+    "i18next-http-backend": "^1.1.0",
     "prettier": "2.2.1"
   }
 }

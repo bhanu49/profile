@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: 'ABeeZee-Regular';
+  src: local('ABeeZee-Regular'),
+  url("./fonts/ABeeZee/ABeeZee-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'texgyreadventor-regular';
+  src: local('texgyreadventor-regular'),
+  url("./fonts/tex-gyre-adventor-cufonfonts/texgyreadventor-regular.otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'texgyreadventor-bold';
+  src: local('texgyreadventor-bold'),
+  url("./fonts/tex-gyre-adventor-cufonfonts/texgyreadventor-bold.otf");
+  font-weight: bold;
+}

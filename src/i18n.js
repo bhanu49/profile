@@ -8,10 +8,11 @@ i18n
   .init({
     lng: 'en',
     fallbackLng: 'en',
-    whitelist: ['en', 'de'],
+    whitelist: ['en'],
     interpolation: {
       escapeValue: false,
     },
+    debug: true,
     react: {
       wait: true,
       useSuspense: false,
