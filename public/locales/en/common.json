@@ -29,5 +29,19 @@
     "info4": "I have over 4 years of experience building awesome frontends.",
     "info5": "I love developing awesome software, and enjoy bringing ideas to life in the browser. I 've a keen eye for detail and really good at teamwork.",
     "info6": " Enjoy your time here and have  nice day"
+  },
+  "resume": "Resume",
+  "education": "Education",
+  "experience": "Experience",
+  "expertise": "Expertise",
+  "resumePage": {
+    "date1": "Feb 2018 - current",
+    "company1": "Accenture Technology Solutions GmbH",
+    "title1": "UX Engineer",
+    "desc1": " Developed multiple Frontend projects for various clients. The prototypes were built mostly using technologies like ReactJs, Angular, GraphQl, Node(express), Webpack etc.",
+    "date2": "Oct 2017 - Feb '18",
+    "company2": "d group GmbH(now part of Accenture)",
+    "title2": "Frontend developer",
+    "desc2": "Worked with agile teams, transformed complex concepts into simple, elegant services and products. Developed and maintained critical components of e-commerce websites"
   }
 }

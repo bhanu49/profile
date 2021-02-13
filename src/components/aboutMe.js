@@ -7,41 +7,9 @@ import { Link } from 'react-router-dom';
 import CodeIcon from '@material-ui/icons/Code';
 import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import { styles } from '../styles/common';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: '#fff',
-    width: '100%',
-    borderRadius: 20,
-    overflow: 'auto',
-    height: 750,
-  },
-  about: {
-    height: '100%',
-    padding: theme.spacing(6),
-  },
-  box: {
-    marginBottom: theme.spacing(4),
-  },
-  content: {
-    marginTop: theme.spacing(3),
-  },
-  orange: {
-    color: ORANGE1,
-    fontWeight: 800,
-  },
-  wrap: {
-    marginBottom: theme.spacing(2),
-  },
-  email: {
-    textDecoration: 'none',
-    color: 'black',
-  },
-  caption: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-}));
+const useStyles = makeStyles((theme) => styles);
 
 const About = () => {
   const classes = useStyles();
@@ -67,7 +35,7 @@ const About = () => {
   return (
     <Fade in={true}>
       <Paper className={classes.root}>
-        <div className={classes.about}>
+        <div className={classes.mainWrap}>
           <Box className={classes.box}>
             <Title title={aboutMe} type={MAIN} />
 

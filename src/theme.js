@@ -32,6 +32,8 @@ const theme = createMuiTheme({
     subtitle1: { fontFamily: 'texgyreadventor-regular', color: '#b6b6b6' },
 
     caption: { fontFamily: 'texgyreadventor-bold', color: '#555555', fontSize: 16 },
+    body2: { fontFamily: 'texgyreadventor-bold', color: '#555555', fontSize: 12 },
+    body1: { fontFamily: 'texgyreadventor-regular', color: '#000', fontSize: 12 },
   },
   palette: {
     primary: {
