@@ -2,5 +2,32 @@
   "name": "Bhanu Prakash",
   "welcome": "Hello People, I'm",
   "position": "Frontend-developer",
-  "cv": "Download CV"
+  "cv": "Download CV",
+  "about": "About",
+  "me": "Me",
+  "what": "What",
+  "residence": "Residence",
+  "DE": "Germany",
+  "email": "e-mail",
+  "Ido": "I Do",
+  "fe": {
+    "main": "Frontend developer",
+    "text": "I help designers, small agencies and businesses bring their ideas to life. I turn business requirements into scalable, clean and efficient software - on time and on budget."
+  },
+  "be": {
+    "main": "Part-time backend dev",
+    "text": "Although I am focused on front-end development, I wouldn't mind getting my hands on backend development"
+  },
+  "learner": {
+    "main": "Learner",
+    "text": "I like to keep my self updated on the latest trends and technology. "
+  },
+  "aboutPage": {
+    "info1": "Hello people, I'm Bhanu. ",
+    "info2": "I am a frontend developer by profession and an Indian",
+    "info3" : " living in Germany. ",
+    "info4": "I have over 4 years of experience building awesome frontends.",
+    "info5": "I love developing awesome software, and enjoy bringing ideas to life in the browser. I 've a keen eye for detail and really good at teamwork.",
+    "info6": " Enjoy your time here and have  nice day"
+  }
 }

@@ -12,6 +12,7 @@ import About from './components/aboutMe';
 import Contact from './components/contact';
 import Portfolio from './components/portfolio';
 import Header from './components/header';
+import { ORANGE1, ORANGE2 } from './theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 750,
     borderRadius: 20,
-    background: 'linear-gradient(#fca072, #e28a48)',
+    background: `linear-gradient(${ORANGE1}, ${ORANGE2})`,
   },
   header: {
     padding: theme.spacing(5),

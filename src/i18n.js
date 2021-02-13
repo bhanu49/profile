@@ -12,7 +12,6 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    debug: true,
     react: {
       wait: true,
       useSuspense: false,

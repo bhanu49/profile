@@ -1,13 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  makeStyles,
-  Typography,
-  Zoom,
-} from '@material-ui/core';
+import { Avatar, Box, Button, Grid, IconButton, makeStyles, Typography } from '@material-ui/core';
 import avatar from '../images/myavatar.jpeg';
 import { useTranslation } from 'react-i18next';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
