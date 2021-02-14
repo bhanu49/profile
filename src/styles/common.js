@@ -7,7 +7,7 @@ export const styles = {
     width: '100%',
     borderRadius: 20,
     overflow: 'auto',
-    //height: 750,
+    height: 750,
     // resume styles
     '& .MuiTimeline-root': {
       padding: 0,
