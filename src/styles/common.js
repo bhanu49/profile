@@ -1,5 +1,4 @@
-import { ORANGE1 } from '../theme';
-import theme from '../theme';
+import theme, { GREY1, GREY2, ORANGE1 } from '../theme';
 
 export const styles = {
   root: {
@@ -7,7 +6,7 @@ export const styles = {
     width: '100%',
     borderRadius: 20,
     overflow: 'auto',
-    height: 750,
+    height: 800,
     // resume styles
     '& .MuiTimeline-root': {
       padding: 0,
@@ -57,5 +56,30 @@ export const styles = {
   },
   skillBox: {
     marginTop: theme.spacing(1.5),
+  },
+  cards: {
+    border: `solid 2px ${GREY1}`,
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
+    borderRadius: 25,
+    marginBottom: theme.spacing(5),
+    backgroundColor: GREY2,
+  },
+  input: {
+    marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(2),
+  },
+  contactForm: {},
+  contactWrap: {
+    marginLeft: theme.spacing(2),
+  },
+  textarea: {
+    width: '100%',
+    outlineColor: ORANGE1,
+  },
+  button: {
+    borderRadius: 25,
+    textTransform: 'none',
+    border: 'solid 2px',
   },
 };

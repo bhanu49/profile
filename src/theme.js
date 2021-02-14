@@ -3,6 +3,8 @@ import image from './images/img.png';
 
 export const ORANGE1 = '#fca072';
 export const ORANGE2 = '#e28a48';
+export const GREY1 = '#e5e5e5';
+export const GREY2 = '#fcfcfc';
 
 const theme = createMuiTheme({
   spacing: 8,

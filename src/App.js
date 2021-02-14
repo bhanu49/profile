@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   wrap: {
-    marginTop: '7%',
+    marginTop: '8%',
   },
   paper: {
     width: '100%',
@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     borderRadius: 50,
     marginLeft: theme.spacing(2),
-    maxHeight: '43%',
-    height: 750,
+    maxHeight: '40%',
+    height: 800,
     //maxWidth: '60%',
   },
   main: {
