@@ -12,6 +12,7 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from '@material-ui/lab';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const useStyles = makeStyles((theme) => styles);
 
@@ -24,63 +25,52 @@ const Resume = () => {
       <div className={classes.mainWrap}>
         <Box className={classes.box}>
           <Grid container spacing={3}>
-            <Grid item container md={6} xs={12}>
-              <Title title={t('common:resume')} type={MAIN} />
-            </Grid>
-
-            <Grid item container md={6} xs={12}>
-              <Title title={t('common:expertise')} type={MAIN} />
-            </Grid>
-          </Grid>
-        </Box>
-
-        {/*  experience section*/}
-        <Box className={classes.box}>
-          <Grid container direction="column" spacing={3}>
-            <Title title={t('common:experience')} />
-
-            <Grid item container md={6} xs={12} style={{ padding: 0 }}>
-              <Timeline align="left" className={classes.timeline}>
-                <TimelineItem>
-                  <TimelineOppositeContent>
-                    <Typography variant={'body2'}>{t('common:resumePage.date1')}</Typography>
-                    <Typography variant={'body1'}> {t('common:resumePage.company1')}</Typography>
-                  </TimelineOppositeContent>
-
-                  <TimelineSeparator>
-                    <TimelineDot color={'primary'} variant="outlined" />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-
-                  <TimelineContent>
-                    <Typography variant={'caption'}>{t('common:resumePage.title1')}</Typography>
-                    <Typography variant={'body1'}>{t('common:resumePage.desc1')}</Typography>
-                  </TimelineContent>
-                </TimelineItem>
-
-                <TimelineItem>
-                  <TimelineOppositeContent>
-                    <Typography variant={'body2'}> {t('common:resumePage.date2')}</Typography>
-                    <Typography variant={'body1'}>{t('common:resumePage.company2')} </Typography>
-                  </TimelineOppositeContent>
-
-                  <TimelineSeparator>
-                    <TimelineDot color={'primary'} variant="outlined" />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-
-                  <TimelineContent>
-                    <Typography variant={'caption'}>{t('common:resumePage.title2')}</Typography>
-                    <Typography variant={'body1'}>{t('common:resumePage.desc2')}</Typography>
-                  </TimelineContent>
-                </TimelineItem>
-              </Timeline>
-            </Grid>
-
             <Grid item container md={6} xs={12} direction={'column'}>
-              <Title title={t('common:education')} />
+              <div style={{ marginBottom: 10 }}>
+                <Title title={t('common:resume')} type={MAIN} />
+              </div>
 
-              <Grid item container md={6} xs={12} style={{ padding: 0 }}>
+              <Title title={t('common:experience')} />
+              <Grid item container style={{ padding: 0 }}>
+                <Timeline align="left" className={classes.timeline}>
+                  <TimelineItem>
+                    <TimelineOppositeContent>
+                      <Typography variant={'body2'}>{t('common:resumePage.date1')}</Typography>
+                      <Typography variant={'body1'}> {t('common:resumePage.company1')}</Typography>
+                    </TimelineOppositeContent>
+
+                    <TimelineSeparator>
+                      <TimelineDot color={'primary'} variant="outlined" />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+
+                    <TimelineContent>
+                      <Typography variant={'caption'}>{t('common:resumePage.title1')}</Typography>
+                      <Typography variant={'body1'}>{t('common:resumePage.desc1')}</Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+
+                  <TimelineItem>
+                    <TimelineOppositeContent>
+                      <Typography variant={'body2'}> {t('common:resumePage.date2')}</Typography>
+                      <Typography variant={'body1'}>{t('common:resumePage.company2')} </Typography>
+                    </TimelineOppositeContent>
+
+                    <TimelineSeparator>
+                      <TimelineDot color={'primary'} variant="outlined" />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+
+                    <TimelineContent>
+                      <Typography variant={'caption'}>{t('common:resumePage.title2')}</Typography>
+                      <Typography variant={'body1'}>{t('common:resumePage.desc2')}</Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                </Timeline>
+              </Grid>
+              <Grid item container style={{ padding: 0 }}>
+                <Title title={t('common:education')} />
+
                 <Timeline align="left" className={classes.timeline}>
                   <TimelineItem>
                     <TimelineOppositeContent>
@@ -117,6 +107,84 @@ const Resume = () => {
                   </TimelineItem>
                 </Timeline>
               </Grid>
+            </Grid>
+
+            <Grid item container md={6} xs={12} direction={'column'}>
+              <Title title={t('common:expertise')} type={MAIN} />
+
+              <div className={classes.skillBox}>
+                <Box display={'flex'}>
+                  <ArrowRightIcon fontSize={'small'} className={classes.icon} />
+                  <Typography variant={'caption'}> {t('common:pl')}</Typography>
+                </Box>
+                <Grid item container style={{ padding: 0 }}>
+                  <Typography variant={'body1'} className={classes.skills}>
+                    Javascript@latest, NodeJs, TypeScript, PHP, Python, Java.
+                  </Typography>
+                </Grid>
+              </div>
+
+              <div className={classes.skillBox}>
+                <Box display={'flex'}>
+                  <ArrowRightIcon fontSize={'small'} className={classes.icon} />
+                  <Typography variant={'caption'}> {t('common:js')}</Typography>
+                </Box>
+                <Grid item container style={{ padding: 0 }}>
+                  <Typography variant={'body1'} className={classes.skills}>
+                    React Js, Angular, Vue.Js, GraphQl, Rxjs, Redux, Express, Lodash/RamdaJs,
+                    Webpack/Babel & variety of Libraries/frameworks and build tools
+                  </Typography>
+                </Grid>
+              </div>
+
+              <div className={classes.skillBox}>
+                <Box display={'flex'}>
+                  <ArrowRightIcon fontSize={'small'} className={classes.icon} />
+                  <Typography variant={'caption'}> {t('common:wd')}</Typography>
+                </Box>
+                <Grid item container style={{ padding: 0 }}>
+                  <Typography variant={'body1'} className={classes.skills}>
+                    HTML5, CSS3, Styled-Components, Material UI, Angular Material, LESS, SASS,
+                    Bootstrap
+                  </Typography>
+                </Grid>
+              </div>
+
+              <div className={classes.skillBox}>
+                <Box display={'flex'}>
+                  <ArrowRightIcon fontSize={'small'} className={classes.icon} />
+                  <Typography variant={'caption'}> {t('common:seo')}</Typography>
+                </Box>
+                <Grid item container style={{ padding: 0 }}>
+                  <Typography variant={'body1'} className={classes.skills}>
+                    SEO and performance optimizations, Google Analytics, Google Experiments.
+                  </Typography>
+                </Grid>
+              </div>
+
+              <div className={classes.skillBox}>
+                <Box display={'flex'}>
+                  <ArrowRightIcon fontSize={'small'} className={classes.icon} />
+                  <Typography variant={'caption'}> {t('common:testing')}</Typography>
+                </Box>
+                <Grid item container style={{ padding: 0 }}>
+                  <Typography variant={'body1'} className={classes.skills}>
+                    Cypress.io, Selenium, Webdriver.io, Jest - Enzyme, Jasmine, Mocha
+                  </Typography>
+                </Grid>
+              </div>
+
+              <div className={classes.skillBox}>
+                <Box display={'flex'}>
+                  <ArrowRightIcon fontSize={'small'} className={classes.icon} />
+                  <Typography variant={'caption'}> {t('common:db')}</Typography>
+                </Box>
+                <Grid item container style={{ padding: 0 }}>
+                  <Typography variant={'body1'} className={classes.skills}>
+                    PostgreSQL, MongoDB, MySql, MS-SQL
+                  </Typography>
+                </Grid>
+              </div>
             </Grid>
           </Grid>
         </Box>

@@ -43,5 +43,11 @@
     "company2": "d group GmbH(now part of Accenture)",
     "title2": "Frontend developer",
     "desc2": "Worked with agile teams, transformed complex concepts into simple, elegant services and products. Developed and maintained critical components of e-commerce websites"
-  }
+  },
+  "pl": "Programming Languages",
+  "js": "JavaScript",
+  "wd": "Responsive Web",
+  "seo": "Web application optimizations",
+  "testing": "Testing Frameworks",
+  "db": "Databases"
 }

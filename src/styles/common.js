@@ -7,7 +7,7 @@ export const styles = {
     width: '100%',
     borderRadius: 20,
     overflow: 'auto',
-    height: 750,
+    //height: 750,
     // resume styles
     '& .MuiTimeline-root': {
       padding: 0,
@@ -41,5 +41,21 @@ export const styles = {
   caption: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
+  },
+
+  //resume styles
+  skills: {
+    marginTop: theme.spacing(0.7),
+    marginLeft: theme.spacing(1.2),
+  },
+  title: { marginTop: theme.spacing(2) },
+  icon: {
+    color: ORANGE1,
+    width: 27,
+    height: 27,
+    marginTop: 1,
+  },
+  skillBox: {
+    marginTop: theme.spacing(1.5),
   },
 };

@@ -23,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   wrap: {
-    marginTop: '10%',
+    marginTop: '7%',
   },
   paper: {
     width: '100%',
-    height: 750,
+    height: '100%',
     borderRadius: 20,
     background: `linear-gradient(${ORANGE1}, ${ORANGE2})`,
   },
@@ -38,8 +38,9 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     borderRadius: 50,
     marginLeft: theme.spacing(2),
-    maxHeight: '45%',
+    maxHeight: '43%',
     height: 'auto',
+    maxWidth: '60%',
   },
   main: {
     height: '100%',
@@ -67,9 +68,10 @@ const App = () => {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth={'lg'}>
+      <Container maxWidth={'xl'}>
         <Grid container className={classes.wrap}>
-          <Grid container item xs={11}>
+          <Grid xs={1} />
+          <Grid container item xs={9}>
             <Paper elevation={3} className={classes.paper}>
               <Grid container className={classes.main}>
                 <Grid container item xs={3} className={classes.header} justify={'center'}>
@@ -109,6 +111,7 @@ const App = () => {
               </Grid>
             </Paper>
           </Grid>
+          <Grid xs={1} />
         </Grid>
       </Container>
     </div>
