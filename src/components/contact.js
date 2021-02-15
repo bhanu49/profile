@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => styles);
 const Contact = () => {
   const classes = useStyles();
   const { t } = useTranslation(['common']);
+
   const text = (
     <>
       <span> Get In</span>
@@ -89,7 +90,7 @@ const Contact = () => {
                 <Title title={text} />
                 <form className={classes.contactForm}>
                   <Grid container spacing={3}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} container direction={'column'}>
                       <TextField label="Name" variant="outlined" className={classes.input} />
                       <TextField label="Email" variant="outlined" className={classes.input} />
                       <TextField label="Subject" variant="outlined" className={classes.input} />

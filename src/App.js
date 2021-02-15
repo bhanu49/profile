@@ -1,5 +1,19 @@
 import './App.css';
-import { Container, Grid, Hidden, IconButton, makeStyles, Paper } from '@material-ui/core';
+import {
+  AppBar,
+  Container,
+  Drawer,
+  Grid,
+  Hidden,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  Paper,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
@@ -13,9 +27,16 @@ import Contact from './components/contact';
 import Portfolio from './components/portfolio';
 import Header from './components/header';
 import { ORANGE1, ORANGE2 } from './theme';
+import { useState } from 'react';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
+import clsx from 'clsx';
+
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: 'flex',
     '& .MuiIconButton-root': {
       '&:hover': {
         color: '#fca072',
@@ -23,11 +44,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   wrap: {
-    marginTop: '8%',
+    marginTop: '5%',
   },
   paper: {
     width: '100%',
-    height: 800,
+    height: '80vh',
     borderRadius: 20,
     background: `linear-gradient(${ORANGE1}, ${ORANGE2})`,
   },
@@ -48,6 +69,33 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  closeMenuButton: {
+    marginRight: 'auto',
+    marginLeft: 0,
+  },
 }));
 
 export const routes = [
@@ -65,8 +113,31 @@ export const routes = [
 const App = () => {
   const classes = useStyles();
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    console.log('click');
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
     <div className={classes.root}>
+      {/* <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+      >
+        <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
+          <CloseIcon />
+        </IconButton>
+      </Drawer>*/}
+
       <Container maxWidth={'xl'}>
         <Grid container className={classes.wrap}>
           <Hidden smDown>
