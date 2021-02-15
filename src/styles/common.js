@@ -64,12 +64,16 @@ export const styles = {
     borderRadius: 25,
     marginBottom: theme.spacing(5),
     backgroundColor: GREY2,
+    marginRight: 10,
   },
   input: {
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(2),
   },
   contactForm: {},
+  map: {
+    marginBottom: theme.spacing(2),
+  },
   contactWrap: {
     marginLeft: theme.spacing(2),
   },
