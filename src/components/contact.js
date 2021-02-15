@@ -39,7 +39,7 @@ const Contact = () => {
             e.preventDefault();
           }}
         >
-          Bhanu.Prakash.V@outlook.com
+          Bhanu
         </Link>
       ),
     },

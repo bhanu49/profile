@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   large: {
-    width: 180,
-    height: 180,
+    width: 140,
+    height: 140,
     border: 'solid 3px #fff',
   },
   name: {

@@ -1,5 +1,5 @@
 import './App.css';
-import { Container, Grid, IconButton, makeStyles, Paper } from '@material-ui/core';
+import { Container, Grid, Hidden, IconButton, makeStyles, Paper } from '@material-ui/core';
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     width: '100%',
-    height: '100%',
+    height: 800,
     borderRadius: 20,
     background: `linear-gradient(${ORANGE1}, ${ORANGE2})`,
   },
@@ -38,9 +38,8 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     borderRadius: 50,
     marginLeft: theme.spacing(2),
-    maxHeight: '40%',
-    height: 800,
-    //maxWidth: '60%',
+    width: 90,
+    height: 310,
   },
   main: {
     height: '100%',
@@ -68,16 +67,22 @@ const App = () => {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth={'lg'}>
+      <Container maxWidth={'xl'}>
         <Grid container className={classes.wrap}>
-          <Grid container item xs={11}>
+          <Hidden smDown>
+            <Grid item md={1} />
+          </Hidden>
+
+          <Grid container item sm={12} md={9}>
             <Paper elevation={3} className={classes.paper}>
               <Grid container className={classes.main}>
-                <Grid container item xs={3} className={classes.header} justify={'center'}>
-                  <Header />
-                </Grid>
+                <Hidden smDown>
+                  <Grid container item xs={3} className={classes.header} justify={'center'}>
+                    <Header />
+                  </Grid>
+                </Hidden>
 
-                <Grid container item xs={9}>
+                <Grid container item xs={12} md={9}>
                   <Switch>
                     <Route exact path="/">
                       <Home />
@@ -99,17 +104,27 @@ const App = () => {
               </Grid>
             </Paper>
           </Grid>
-          <Grid container item xs={1}>
-            <Paper elevation={3} className={classes.menu}>
-              <Grid container justify={'center'} alignItems={'center'} className={classes.menuWrap}>
-                {routes.map((item, ind) => (
-                  <IconButton component={Link} to={item.path} key={ind}>
-                    {item.icon}
-                  </IconButton>
-                ))}
-              </Grid>
-            </Paper>
-          </Grid>
+
+          <Hidden smDown>
+            <Grid container item md={1}>
+              <Paper elevation={3} className={classes.menu}>
+                <Grid
+                  container
+                  justify={'center'}
+                  alignItems={'center'}
+                  className={classes.menuWrap}
+                >
+                  {routes.map((item, ind) => (
+                    <IconButton component={Link} to={item.path} key={ind}>
+                      {item.icon}
+                    </IconButton>
+                  ))}
+                </Grid>
+              </Paper>
+            </Grid>
+
+            <Grid item md={1} />
+          </Hidden>
         </Grid>
       </Container>
     </div>

@@ -74,7 +74,8 @@ const Resume = () => {
                     </TimelineItem>
                   </Timeline>
                 </Grid>
-                <Grid item container style={{ padding: 0 }}>
+
+                <Grid item container style={{ padding: 0 }} direction={'column'}>
                   <Title title={t('common:education')} />
 
                   <Timeline align="left" className={classes.timeline}>

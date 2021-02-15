@@ -8,6 +8,15 @@ export const GREY2 = '#fcfcfc';
 
 const theme = createMuiTheme({
   spacing: 8,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1020,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   typography: {
     fontFamily: ['"texgyreadventor-regular"', '"texgyreadventor-bold"'].join(','),
     h2: {
