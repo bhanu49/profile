@@ -2,7 +2,7 @@
   "name": "new-profile",
   "version": "0.1.0",
   "private": true,
-  "homepage": " https://bhanu49.github.io/profile/.",
+  "homepage": "https://bhanu49.github.io/profile/.",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
