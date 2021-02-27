@@ -1,20 +1,13 @@
 import React from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps';
 
 const Maps = (props) => {
+  const pos = { lat: 49.48468, lng: 8.47672 };
   return (
-    <Map google={this.props.google} zoom={14}>
-      <Marker onClick={() => console.log('maps')} name={'Current location'} />
-
-      <InfoWindow>
-        <div>
-          <h1>test</h1>
-        </div>
-      </InfoWindow>
-    </Map>
+    <GoogleMap defaultZoom={10} defaultCenter={pos}>
+      {<Marker position={pos} />}
+    </GoogleMap>
   );
 };
 
-export default GoogleApiWrapper((props) => ({
-  apiKey: props.apiKey,
-}));
+export default withScriptjs(withGoogleMap(Maps));

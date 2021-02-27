@@ -6,7 +6,7 @@ export const styles = {
     width: '100%',
     borderRadius: 20,
     overflow: 'auto',
-    height: 800,
+    height: '80vh',
     // resume styles
     '& .MuiTimeline-root': {
       padding: 0,
@@ -64,12 +64,17 @@ export const styles = {
     borderRadius: 25,
     marginBottom: theme.spacing(5),
     backgroundColor: GREY2,
+    marginRight: 10,
   },
   input: {
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(2),
+    width: '100%',
   },
   contactForm: {},
+  map: {
+    marginBottom: theme.spacing(2),
+  },
   contactWrap: {
     marginLeft: theme.spacing(2),
   },

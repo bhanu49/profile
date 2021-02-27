@@ -1,21 +1,31 @@
 import './App.css';
-import { Container, Grid, IconButton, makeStyles, Paper } from '@material-ui/core';
+import {
+  AppBar,
+  Container,
+  Grid,
+  Hidden,
+  IconButton,
+  makeStyles,
+  Paper,
+  Toolbar,
+} from '@material-ui/core';
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import { HomeOutlined } from '@material-ui/icons';
-import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
-import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
-import WorkOutlineOutlinedIcon from '@material-ui/icons/WorkOutlineOutlined';
 import Resume from './components/resume';
 import About from './components/aboutMe';
 import Contact from './components/contact';
-import Portfolio from './components/portfolio';
 import Header from './components/header';
 import { ORANGE1, ORANGE2 } from './theme';
+import React, { useEffect, useState } from 'react';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/styles';
+import SideMenu from './components/swipable';
+import { routes } from './helper/routes';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: 'flex',
     '& .MuiIconButton-root': {
       '&:hover': {
         color: '#fca072',
@@ -23,11 +33,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   wrap: {
-    marginTop: '8%',
+    marginTop: '5%',
   },
   paper: {
     width: '100%',
-    height: '100%',
+    height: '80vh',
     borderRadius: 20,
     background: `linear-gradient(${ORANGE1}, ${ORANGE2})`,
   },
@@ -38,9 +48,8 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     borderRadius: 50,
     marginLeft: theme.spacing(2),
-    maxHeight: '40%',
-    height: 800,
-    //maxWidth: '60%',
+    width: 90,
+    height: 270,
   },
   main: {
     height: '100%',
@@ -49,57 +58,77 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
-}));
-
-export const routes = [
-  { title: 'Home', path: '/', icon: <HomeOutlined fontSize={'large'} /> },
-  { title: 'About', path: '/about', icon: <PersonOutlineIcon fontSize={'large'} /> },
-  { title: 'Resume', path: '/resume', icon: <MenuBookOutlinedIcon fontSize={'large'} /> },
-  { title: 'Portfolio', path: '/portfolio', icon: <WorkOutlineOutlinedIcon fontSize={'large'} /> },
-  {
-    title: 'Contact',
-    path: '/contact',
-    icon: <PermContactCalendarOutlinedIcon fontSize={'large'} />,
+  mobileWrap: {
+    marginTop: theme.spacing(4),
   },
-];
+  '@global': {
+    body: {
+      [theme.breakpoints.down('sm')]: {
+        backgroundColor: '#fff',
+      },
+    },
+  },
+}));
 
 const App = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
-  return (
-    <div className={classes.root}>
-      <Container maxWidth={'lg'}>
-        <Grid container className={classes.wrap}>
-          <Grid container item xs={11}>
-            <Paper elevation={3} className={classes.paper}>
-              <Grid container className={classes.main}>
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    matches ? setContent(mobileContent) : setContent(webContent);
+  }, [matches]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const componentNav = (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/home">
+        <Home />
+      </Route>
+      <Route exact path="/about">
+        <About />
+      </Route>
+      <Route exact path="/contact">
+        <Contact />
+      </Route>
+      {/* <Route exact path="/portfolio">
+        <Portfolio />
+      </Route>*/}
+      <Route exact path="/resume">
+        <Resume />
+      </Route>
+    </Switch>
+  );
+
+  const webContent = (
+    <Container maxWidth={'xl'}>
+      <Grid container className={classes.wrap}>
+        <Hidden smDown>
+          <Grid item md={1} />
+        </Hidden>
+
+        <Grid container item sm={12} md={9}>
+          <Paper elevation={3} className={classes.paper}>
+            <Grid container className={classes.main}>
+              <Hidden smDown>
                 <Grid container item xs={3} className={classes.header} justify={'center'}>
                   <Header />
                 </Grid>
+              </Hidden>
 
-                <Grid container item xs={9}>
-                  <Switch>
-                    <Route exact path="/">
-                      <Home />
-                    </Route>
-                    <Route exact path="/about">
-                      <About />
-                    </Route>
-                    <Route exact path="/contact">
-                      <Contact />
-                    </Route>
-                    <Route exact path="/portfolio">
-                      <Portfolio />
-                    </Route>
-                    <Route exact path="/resume">
-                      <Resume />
-                    </Route>
-                  </Switch>
-                </Grid>
+              <Grid container item xs={12} md={9}>
+                {componentNav}
               </Grid>
-            </Paper>
-          </Grid>
-          <Grid container item xs={1}>
+            </Grid>
+          </Paper>
+        </Grid>
+
+        <Hidden smDown>
+          <Grid container item md={1}>
             <Paper elevation={3} className={classes.menu}>
               <Grid container justify={'center'} alignItems={'center'} className={classes.menuWrap}>
                 {routes.map((item, ind) => (
@@ -110,10 +139,21 @@ const App = () => {
               </Grid>
             </Paper>
           </Grid>
-        </Grid>
-      </Container>
-    </div>
+
+          <Grid item md={1} />
+        </Hidden>
+      </Grid>
+    </Container>
   );
+
+  const mobileContent = (
+    <Grid container className={classes.mobileWrap}>
+      <SideMenu />
+      {componentNav}
+    </Grid>
+  );
+
+  return content ? <div className={classes.root}>{content}</div> : null;
 };
 
 export default App;
