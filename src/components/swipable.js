@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -17,11 +17,14 @@ const useStyles = makeStyles({
   appbar: {
     width: '100%',
   },
+  white: {
+    color: '#fff',
+  },
 });
 
-const SideMenu = (props) => {
+const SideMenu = () => {
   const classes = useStyles();
-  const [state, setState] = useState(props.open);
+  const [state, setState] = useState(false);
 
   const toggleDrawer = (event, open) => {
     if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -53,16 +56,16 @@ const SideMenu = (props) => {
       <AppBar>
         <Toolbar>
           <Grid container justify={'space-between'} alignItems={'center'}>
-            <Typography variant={'caption'}> Bhanu Prakash</Typography>
+            <Typography variant={'h5'} className={classes.white}>
+              Bhanu Prakash
+            </Typography>
 
             <IconButton component="span" onClick={(e) => toggleDrawer(e, true)}>
-              <MenuIcon fontSize={'large'} />
+              <MenuIcon fontSize={'large'} className={classes.white} />
             </IconButton>
           </Grid>
         </Toolbar>
       </AppBar>
-
-      <Grid justify={'space-between'} container className={classes.appbar}></Grid>
 
       <SwipeableDrawer
         anchor={'right'}

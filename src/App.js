@@ -1,14 +1,5 @@
 import './App.css';
-import {
-  AppBar,
-  Container,
-  Grid,
-  Hidden,
-  IconButton,
-  makeStyles,
-  Paper,
-  Toolbar,
-} from '@material-ui/core';
+import { Container, Grid, Hidden, IconButton, makeStyles, Paper } from '@material-ui/core';
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import Resume from './components/resume';
@@ -21,7 +12,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
 import SideMenu from './components/swipable';
 import { routes } from './helper/routes';
-import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
   root: {

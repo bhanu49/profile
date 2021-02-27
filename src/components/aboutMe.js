@@ -107,7 +107,9 @@ const About = () => {
   );
 
   return (
-    <Fade in={true}>{matches ? about : <Paper className={classes.root}> {about}</Paper>}</Fade>
+    <Fade in={true}>
+      {matches ? <Paper>{about}</Paper> : <Paper className={classes.root}> {about}</Paper>}
+    </Fade>
   );
 };
 
