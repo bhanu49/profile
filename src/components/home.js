@@ -12,8 +12,8 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { ORANGE2 } from '../theme';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { ORANGE1, ORANGE2 } from '../theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       height: '100vh',
     },
+  },
+  iconGrp: {
+    marginTop: theme.spacing(2),
   },
 }));
 

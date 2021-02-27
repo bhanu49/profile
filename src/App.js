@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Grid, Hidden, IconButton, makeStyles, Paper } from '@material-ui/core';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './components/home';
 import Resume from './components/resume';
 import About from './components/aboutMe';
@@ -73,8 +73,11 @@ const App = () => {
 
   const componentNav = (
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/profile">
         <Home />
+      </Route>
+      <Route exact path="/">
+        <Redirect to="/profile" />
       </Route>
       <Route exact path="/home">
         <Home />
