@@ -1,21 +1,27 @@
 import './App.css';
-import { Container, Grid, Hidden, IconButton, makeStyles, Paper } from '@material-ui/core';
+import {
+  AppBar,
+  Container,
+  Grid,
+  Hidden,
+  IconButton,
+  makeStyles,
+  Paper,
+  Toolbar,
+} from '@material-ui/core';
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import { HomeOutlined } from '@material-ui/icons';
-import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
-import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 import Resume from './components/resume';
 import About from './components/aboutMe';
 import Contact from './components/contact';
 import Header from './components/header';
 import { ORANGE1, ORANGE2 } from './theme';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
-
-const drawerWidth = 240;
+import SideMenu from './components/swipable';
+import { routes } from './helper/routes';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,45 +58,17 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
+  mobileWrap: {
+    marginTop: theme.spacing(4),
+  },
+  '@global': {
+    body: {
+      [theme.breakpoints.down('sm')]: {
+        backgroundColor: '#fff',
+      },
     },
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  closeMenuButton: {
-    marginRight: 'auto',
-    marginLeft: 0,
   },
 }));
-
-export const routes = [
-  { title: 'Home', path: '/', icon: <HomeOutlined fontSize={'large'} /> },
-  { title: 'About', path: '/about', icon: <PersonOutlineIcon fontSize={'large'} /> },
-  { title: 'Resume', path: '/resume', icon: <MenuBookOutlinedIcon fontSize={'large'} /> },
-  /*
-  { title: 'Portfolio', path: '/portfolio', icon: <WorkOutlineOutlinedIcon fontSize={'large'} /> },
-*/
-  {
-    title: 'Contact',
-    path: '/contact',
-    icon: <PermContactCalendarOutlinedIcon fontSize={'large'} />,
-  },
-];
 
 const App = () => {
   const classes = useStyles();
@@ -101,7 +79,30 @@ const App = () => {
 
   useEffect(() => {
     matches ? setContent(mobileContent) : setContent(webContent);
-  }, [matches]);
+  }, [matches]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const componentNav = (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/home">
+        <Home />
+      </Route>
+      <Route exact path="/about">
+        <About />
+      </Route>
+      <Route exact path="/contact">
+        <Contact />
+      </Route>
+      {/* <Route exact path="/portfolio">
+        <Portfolio />
+      </Route>*/}
+      <Route exact path="/resume">
+        <Resume />
+      </Route>
+    </Switch>
+  );
 
   const webContent = (
     <Container maxWidth={'xl'}>
@@ -120,26 +121,7 @@ const App = () => {
               </Hidden>
 
               <Grid container item xs={12} md={9}>
-                <Switch>
-                  <Route exact path="/">
-                    <Home />
-                  </Route>
-                  <Route exact path="/home">
-                    <Home />
-                  </Route>
-                  <Route exact path="/about">
-                    <About />
-                  </Route>
-                  <Route exact path="/contact">
-                    <Contact />
-                  </Route>
-                  {/*   <Route exact path="/portfolio">
-                    <Portfolio />
-                  </Route>*/}
-                  <Route exact path="/resume">
-                    <Resume />
-                  </Route>
-                </Switch>
+                {componentNav}
               </Grid>
             </Grid>
           </Paper>
@@ -165,47 +147,11 @@ const App = () => {
   );
 
   const mobileContent = (
-    <Grid container>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/contact">
-          <Contact />
-        </Route>
-        {/*  <Route exact path="/portfolio">
-          <Portfolio />
-        </Route>*/}
-        <Route exact path="/resume">
-          <Resume />
-        </Route>
-      </Switch>
+    <Grid container className={classes.mobileWrap}>
+      <SideMenu />
+      {componentNav}
     </Grid>
   );
-
-  /*  const handleDrawerToggle = () => {
-    console.log('click');
-    setMobileOpen(!mobileOpen);
-  };
-  const dummyCategories = ['Hokusai', 'Hiroshige', 'Utamaro', 'Kuniyoshi', 'Yoshitoshi'];
-
-  const drawer = (
-    <div>
-      <List>
-        {dummyCategories.map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );*/
 
   return content ? <div className={classes.root}>{content}</div> : null;
 };
