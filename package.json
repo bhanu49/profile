@@ -48,6 +48,7 @@
     "bracketSpacing": true
   },
   "devDependencies": {
+    "@material-ui/styles": "^4.11.3",
     "clsx": "^1.1.1",
     "i18next-http-backend": "^1.1.0",
     "prettier": "2.2.1"
