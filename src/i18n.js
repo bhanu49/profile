@@ -9,6 +9,10 @@ i18n
     lng: 'en',
     fallbackLng: 'en',
     whitelist: ['en'],
+    backend: {
+      loadPath: '/locales/en/common.json',
+    },
+    debug: true,
     interpolation: {
       escapeValue: false,
     },
