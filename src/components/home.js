@@ -1,7 +1,19 @@
-import { Grid, Grow, makeStyles, Paper, Typography, Zoom } from '@material-ui/core';
+import {
+  Box,
+  Grid,
+  Grow,
+  IconButton,
+  makeStyles,
+  Paper,
+  Typography,
+  Zoom,
+} from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { ORANGE1, ORANGE2 } from '../theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +52,20 @@ const Home = () => {
       <Zoom in={true}>
         <Typography variant={'h6'}>{t('common:position')}</Typography>
       </Zoom>
+
+      <Box className={classes.iconGrp}>
+        <IconButton
+          onClick={(e) =>
+            window.open('https://www.linkedin.com/in/bhanu-prakash-vemula/', '_blank')
+          }
+        >
+          <LinkedInIcon fontSize={'large'} style={{ color: ORANGE2 }} />
+        </IconButton>
+
+        <IconButton onClick={(e) => window.open('https://github.com/bhanu49', '_blank')}>
+          <GitHubIcon fontSize={'large'} style={{ color: ORANGE2 }} />
+        </IconButton>
+      </Box>
     </Grid>
   );
 

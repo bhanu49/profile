@@ -87,4 +87,7 @@ export const styles = {
     textTransform: 'none',
     border: 'solid 2px',
   },
+  iconGrp: {
+    marginTop: theme.spacing(2),
+  },
 };

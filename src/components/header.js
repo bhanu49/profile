@@ -58,15 +58,19 @@ const Header = () => {
         <Typography variant={'h4'} align={'center'} className={classes.name}>
           {t('common:name')}
         </Typography>
-        <Typography variant={'subtitle1'} className={classes.position}>
+        <Typography variant={'subtitle1'} className={classes.position} align={'center'}>
           {t('common:position')}
         </Typography>
 
         <Box className={classes.iconGrp}>
-          <IconButton>
+          <IconButton
+            onClick={(e) =>
+              window.open('https://www.linkedin.com/in/bhanu-prakash-vemula/', '_blank')
+            }
+          >
             <LinkedInIcon fontSize={'default'} className={classes.icon} />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={(e) => window.open('https://github.com/bhanu49', '_blank')}>
             <GitHubIcon fontSize={'default'} className={classes.icon} />
           </IconButton>
         </Box>
