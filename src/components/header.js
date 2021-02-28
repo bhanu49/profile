@@ -3,6 +3,7 @@ import avatar from '../images/myavatar.jpeg';
 import { useTranslation } from 'react-i18next';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import resume from '../pdf/Bhanu_Resume.pdf';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
   iconGrp: {
     marginTop: theme.spacing(2),
+  },
+  link: {
+    textDecoration: 'none',
   },
   cv: {
     color: '#fff',
@@ -74,10 +78,11 @@ const Header = () => {
             <GitHubIcon fontSize={'default'} className={classes.icon} />
           </IconButton>
         </Box>
-
-        <Button variant={'contained'} className={classes.cv} color={'primary'}>
-          {t('common:cv')}
-        </Button>
+        <a href={resume} download={'Bhanu_resume'} className={classes.link}>
+          <Button variant={'contained'} className={classes.cv} color={'primary'}>
+            {t('common:cv')}
+          </Button>
+        </a>
       </Grid>
     </>
   );
