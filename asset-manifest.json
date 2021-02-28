@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/profile/static/css/main.c4f17ac5.chunk.css",
-    "main.js": "/profile/static/js/main.dd3f636a.chunk.js",
-    "main.js.map": "/profile/static/js/main.dd3f636a.chunk.js.map",
+    "main.js": "/profile/static/js/main.fa212f82.chunk.js",
+    "main.js.map": "/profile/static/js/main.fa212f82.chunk.js.map",
     "runtime-main.js": "/profile/static/js/runtime-main.740939ab.js",
     "runtime-main.js.map": "/profile/static/js/runtime-main.740939ab.js.map",
     "static/js/2.f681f1aa.chunk.js": "/profile/static/js/2.f681f1aa.chunk.js",
@@ -13,6 +13,7 @@
     "static/css/main.c4f17ac5.chunk.css.map": "/profile/static/css/main.c4f17ac5.chunk.css.map",
     "static/js/2.f681f1aa.chunk.js.LICENSE.txt": "/profile/static/js/2.f681f1aa.chunk.js.LICENSE.txt",
     "static/media/index.css": "/profile/static/media/texgyreadventor-regular.d0110fa5.otf",
+    "static/media/Bhanu_Resume.94399a0f.pdf": "/profile/static/media/Bhanu_Resume.94399a0f.pdf",
     "static/media/getFetch.cjs": "/profile/static/media/getFetch.d7d6010d.cjs",
     "static/media/img.15a5ff0c.png": "/profile/static/media/img.15a5ff0c.png",
     "static/media/myavatar.6b63ed68.jpeg": "/profile/static/media/myavatar.6b63ed68.jpeg"
@@ -21,6 +22,6 @@
     "static/js/runtime-main.740939ab.js",
     "static/js/2.f681f1aa.chunk.js",
     "static/css/main.c4f17ac5.chunk.css",
-    "static/js/main.dd3f636a.chunk.js"
+    "static/js/main.fa212f82.chunk.js"
   ]
 }
