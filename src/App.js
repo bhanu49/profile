@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Grid, Hidden, IconButton, makeStyles, Paper } from '@material-ui/core';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import Resume from './components/resume';
 import About from './components/aboutMe';
