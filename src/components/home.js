@@ -17,6 +17,8 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { ORANGE2 } from '../theme';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import avatar from '../images/myavatar.jpeg';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import resume from '../pdf/Bhanu_Resume.pdf';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3),
     border: 'solid 3px #fca072',
   },
+  link: {},
 }));
 
 const Home = () => {
@@ -81,6 +84,14 @@ const Home = () => {
         <IconButton onClick={(e) => window.open('https://github.com/bhanu49', '_blank')}>
           <GitHubIcon fontSize={'large'} style={{ color: ORANGE2 }} />
         </IconButton>
+
+        <Hidden mdUp>
+          <a href={resume} download={'Bhanu_resume'} className={classes.link}>
+            <IconButton>
+              <GetAppIcon fontSize={'large'} style={{ color: ORANGE2 }} />
+            </IconButton>
+          </a>
+        </Hidden>
       </Box>
     </Grid>
   );
