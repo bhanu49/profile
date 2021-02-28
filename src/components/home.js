@@ -1,7 +1,9 @@
 import {
+  Avatar,
   Box,
   Grid,
   Grow,
+  Hidden,
   IconButton,
   makeStyles,
   Paper,
@@ -14,6 +16,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { ORANGE2 } from '../theme';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import avatar from '../images/myavatar.jpeg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
   },
   iconGrp: {
     marginTop: theme.spacing(2),
+  },
+  large: {
+    width: 130,
+    height: 130,
+    marginBottom: theme.spacing(3),
+    border: 'solid 3px #fca072',
   },
 }));
 
@@ -48,6 +57,10 @@ const Home = () => {
       className={classes.home}
       direction={'column'}
     >
+      <Hidden mdUp>
+        <Avatar alt="bhanu" src={avatar} className={classes.large} />
+      </Hidden>
+
       <Typography variant={'subtitle1'}> {t('common:welcome')}</Typography>
       <Typography variant={'h2'} align={'center'}>
         {t('common:name')}
