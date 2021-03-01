@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   '@global': {
     body: {
       [theme.breakpoints.down('sm')]: {
-        backgroundColor: '#fff',
+        backgroundColor: '#fff !important',
       },
     },
   },
