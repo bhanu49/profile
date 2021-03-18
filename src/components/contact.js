@@ -13,8 +13,17 @@ import { Send } from '@material-ui/icons';
 import Maps from './shared/maps';
 import { useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import * as yup from 'yup';
+import { useFormik } from 'formik';
 
 const useStyles = makeStyles((theme) => styles);
+
+const validationSchema = yup.object({
+  email: yup.string('Enter your email').email('Enter a valid email').required('Email is required'),
+  name: yup.string('name').required('Name is required'),
+  subject: yup.string('subject').required('Subject is  required'),
+  body: yup.string('body').required('Comments are required'),
+});
 
 const Contact = () => {
   const classes = useStyles();
@@ -22,6 +31,18 @@ const Contact = () => {
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      subject: '',
+      body: '',
+    },
+    validationSchema: validationSchema,
+    //todo: send email
+    onSubmit: (values) => {},
+  });
 
   const text = (
     <>
@@ -92,16 +113,58 @@ const Contact = () => {
             </Box>
 
             <Title title={text} />
-            <form className={classes.contactForm}>
+            <form className={classes.contactForm} onSubmit={formik.handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6} container direction={'column'}>
-                  <TextField label="Name" variant="outlined" className={classes.input} />
-                  <TextField label="Email" variant="outlined" className={classes.input} />
-                  <TextField label="Subject" variant="outlined" className={classes.input} />
+                  <TextField
+                    label="Name"
+                    id="name"
+                    variant="outlined"
+                    className={classes.input}
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    name="name"
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                  />
+                  <TextField
+                    label="Email"
+                    id="email"
+                    variant="outlined"
+                    className={classes.input}
+                    type="email"
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                  />
+                  <TextField
+                    label="Subject"
+                    id="subject"
+                    variant="outlined"
+                    className={classes.input}
+                    value={formik.values.subject}
+                    name="subject"
+                    onChange={formik.handleChange}
+                    error={formik.touched.subject && Boolean(formik.errors.subject)}
+                    helperText={formik.touched.subject && formik.errors.subject}
+                  />
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                  <textarea rows={8} className={clsx(classes.input, classes.textarea)} />
+                  <TextField
+                    id="body"
+                    rows={8}
+                    multiline
+                    label="Comments"
+                    variant="outlined"
+                    className={clsx(classes.input, classes.textarea)}
+                    onChange={formik.handleChange}
+                    value={formik.values.body}
+                    error={formik.touched.body && Boolean(formik.errors.body)}
+                    helperText={formik.touched.body && formik.errors.body}
+                  />
                 </Grid>
 
                 <Grid item container xs={12} md={12}>
@@ -110,6 +173,7 @@ const Contact = () => {
                     color="primary"
                     className={classes.button}
                     endIcon={<Send />}
+                    type={'submit'}
                   >
                     Send
                   </Button>

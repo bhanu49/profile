@@ -78,7 +78,7 @@ const Header = () => {
             <GitHubIcon fontSize={'default'} className={classes.icon} />
           </IconButton>
         </Box>
-        <a href={resume} download={'Bhanu_resume'} className={classes.link}>
+        <a href={resume} download={'Bhanu_resume.pdf'} className={classes.link}>
           <Button variant={'contained'} className={classes.cv} color={'primary'}>
             {t('common:cv')}
           </Button>

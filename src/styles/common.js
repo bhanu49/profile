@@ -90,6 +90,7 @@ export const styles = {
   iconGrp: {
     marginTop: theme.spacing(2),
   },
+
   '@global': {
     body: {
       [theme.breakpoints.down('sm')]: {

@@ -86,7 +86,7 @@ const Home = () => {
         </IconButton>
 
         <Hidden mdUp>
-          <a href={resume} download={'Bhanu_resume'} className={classes.link}>
+          <a href={resume} download={'Bhanu_resume.pdf'} className={classes.link}>
             <IconButton>
               <GetAppIcon fontSize={'large'} style={{ color: ORANGE2 }} />
             </IconButton>

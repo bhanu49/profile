@@ -60,6 +60,12 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiFormHelperText: {
+      root: {
+        fontSize: 10,
+        fontFamily: 'texgyreadventor-regular',
+      },
+    },
   },
 });
 
