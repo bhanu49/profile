@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Grow, makeStyles, Paper, TextField } from '@material-ui/core';
+import { Box, Button, Grid, Grow, makeStyles, Paper, Snackbar, TextField } from '@material-ui/core';
 import { styles } from '../styles/common';
 import Title from './shared/title';
 import { MAIN } from '../constants/common';
@@ -15,8 +15,14 @@ import { useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import emailjs from 'emailjs-com';
+import { init } from 'emailjs-com';
+import { Alert } from '@material-ui/lab';
+import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => styles);
+
+init('user_vjYqgL71jtkB4lROeJEyP');
 
 const validationSchema = yup.object({
   email: yup.string('Enter your email').email('Enter a valid email').required('Email is required'),
@@ -31,6 +37,7 @@ const Contact = () => {
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const [showAlert, setShowAlert] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -40,8 +47,16 @@ const Contact = () => {
       body: '',
     },
     validationSchema: validationSchema,
-    //todo: send email
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      emailjs.send('service_ysgw6hg', 'template_mgf985f', values).then(
+        (result) => {
+          setShowAlert(true);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    },
   });
 
   const text = (
@@ -187,7 +202,20 @@ const Contact = () => {
   );
 
   return (
-    <Grow in={true}>{matches ? contact : <Paper className={classes.root}>{contact}</Paper>}</Grow>
+    <>
+      <Snackbar open={showAlert} autoHideDuration={10000}>
+        <Alert
+          className={classes.alert}
+          onClose={() => {
+            setShowAlert(false);
+          }}
+        >
+          Message sent successfully. Bhanu will get back to you soon.
+        </Alert>
+      </Snackbar>
+
+      <Grow in={true}>{matches ? contact : <Paper className={classes.root}>{contact}</Paper>}</Grow>
+    </>
   );
 };
 
